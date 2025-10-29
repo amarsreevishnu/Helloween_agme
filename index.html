@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Classic Halloween Celebration</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Halloween Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Creepster&family=Nosifer&display=swap" rel="stylesheet">
+    <style>
+        /* Animated Gradient BG */
+        body {
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            background: linear-gradient(135deg,#1a0025 0%,#371b1b 55%,#25002d 100%);
+            color: #f9ebdd;
+            font-family: 'Merriweather', serif;
+            background-size: 400% 400%;
+            animation: hauntedSky 16s ease-in-out infinite;
+        }
+        @keyframes hauntedSky {
+            0%,100%{background-position:0% 60%;}
+            50%{background-position:100% 40%;}
+        }
+
+        /* Fog Animation */
+        .fog {
+            pointer-events:none;
+            position: fixed;
+            top:0; left:0; width:100vw; height:100vh;
+            background: url('https://png.pngtree.com/png-vector/20221017/ourmid/pngtree-helloween-bat-wings-png-image_6350846.png') repeat;
+            opacity:.16;
+            z-index: 99;
+            animation: fogmove 120s linear infinite;
+        }
+        @keyframes fogmove {
+            0%{background-position:0 0;}
+            100%{background-position:800px 200px;}
+        }
+
+        /* Flying Bat Animation */
+        .bat {
+            position: fixed;
+            top: 90px;
+            left: 2vw;
+            width: 70px;
+            height: auto;
+            z-index: 10;
+            animation: batfly 9s linear infinite;
+            filter: drop-shadow(2px 2px 5px #000);
+        }
+        @keyframes batfly {
+            0% { left:2vw; top:90px; transform:scaleX(-1);}
+            20% { top:130px; left:20vw;}
+            40% { top:40px; left:50vw; transform:scaleX(1);}
+            60% { top:100px; left:70vw;}
+            80% { left:92vw;}
+            100% { left:2vw; top:90px; transform:scaleX(-1);}
+        }
+
+        /* Header Styling */
+        header {
+            text-align: center;
+            padding: 82px 0 45px 0;
+            position:relative;
+        }
+        header h1 {
+            font-family: 'Nosifer', cursive;
+            color: #ff5415;
+            font-size: 3em;
+            margin: 0;
+            text-shadow: 2px 6px 22px #260505, 0 0 36px #ff4300;
+            letter-spacing: 2px;
+            animation: flicker 2s infinite alternate;
+        }
+        @keyframes flicker {
+            from {opacity: 1;}
+            to {opacity: 0.86;}
+        }
+        header p {
+            font-family: 'Creepster', cursive;
+            color: #fff8e1;
+            font-size:1.4em;
+            margin:22px 0 0 0;
+            letter-spacing: 2px;
+            text-shadow: 1px 2px 7px #320101;
+        }
+
+        /* Decorative Halloween Images Row */
+        .image-row {
+            display: flex;
+            justify-content: center;
+            gap: 36px;
+            margin: 26px auto 8px auto;
+            flex-wrap: wrap;
+        }
+        .image-row img {
+            height: 70px;
+            width: auto;
+            border-radius: 9px;
+            box-shadow: 0 4px 18px #2c0101b8;
+            transition: transform .25s;
+        }
+        .image-row img:hover {
+            transform: scale(1.15) rotate(-7deg);
+            box-shadow: 0 8px 28px #f29108b8;
+        }
+
+        /* Main Styling */
+        main {
+            max-width: 820px;
+            margin: 0 auto;
+            background: rgba(24,14,12,0.92);
+            border-radius: 16px;
+            box-shadow: 0 12px 40px rgba(0,0,0,0.55), 0 0 32px #4f1f2b inset;
+            padding: 40px 24px;
+            position: relative;
+            z-index: 2;
+            margin-top: -34px;
+        }
+        main h2 {
+            font-family: 'Creepster', cursive;
+            color: #f29108;
+            font-size: 2.2em;
+            letter-spacing: 2px;
+            margin-top: 0;
+            text-shadow: 0 0 16px #501d1d;
+        }
+        .line {
+            border-top: 2px dashed #f29108;
+            margin: 22px 0;
+        }
+        main ul {
+            margin: 32px 0;
+            padding-left: 32px;
+        }
+        main ul li {
+            font-family: 'Creepster', cursive;
+            font-size: 1.1em;
+            color: #ef4331;
+            text-shadow: 0 0 8px #2c0101;
+            margin-bottom: 12px;
+            letter-spacing: 1px;
+        }
+        main ul li:before {
+            content:'🎃';
+            margin-right: 12px;
+        }
+        main p {
+            text-shadow: 0 0 7px #542010;
+        }
+
+        /* Fun Glowing Button */
+        .btn-fun {
+            display:inline-block;
+            margin:28px auto 2px auto;
+            padding:14px 38px;
+            font-size: 1.4em;
+            font-family: 'Creepster', cursive;
+            color: #fff8e1;
+            background: #ff7b03;
+            border: 0;
+            border-radius: 9px;
+            box-shadow: 0 0 24px #f29108;
+            cursor:pointer;
+            letter-spacing:2px;
+            text-shadow:0 0 6px #630d0d;
+            animation: glowbtn 2s ease-in-out infinite;
+            transition:transform .2s;
+        }
+        @keyframes glowbtn {
+            0%,100% { box-shadow:0 0 24px #f29108;}
+            50% { box-shadow:0 0 38px #faedb0;}
+        }
+        .btn-fun:hover {
+            transform:scale(1.09);
+            background:#feab67;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            background: #270a12;
+            color: #f29108;
+            padding: 18px 0 16px 0;
+            font-family: 'Creepster', cursive;
+            font-size: 1.06em;
+            letter-spacing: 2px;
+            border-top: 1px solid #320101;
+        }
+
+        /* Static Corner Images */
+        .corner-img {
+            position:fixed;
+            z-index:88;
+            width: 56px;
+            opacity:0.92;
+            transform: rotate(-14deg);
+        }
+        .corner-img.left {
+            top:50px; left:30px;
+        }
+        .corner-img.right {
+            bottom:50px; right:30px;
+        }
+
+        @media(max-width:900px){
+            main{padding:16px 4px;}
+            header h1{font-size:2em;}
+            .corner-img{width:30px;}
+        }
+        @media(max-width:580px){
+            header{padding:48px 0 25px 0;}
+            main{margin-top:-16px;}
+            .corner-img{width:22px;}
+            .bat{width:40px;}
+            .image-row img{height:40px;}
+        }
+    </style>
+</head>
+<body>
+    <div class="fog"></div>
+    <img class="bat" src="https://png.pngtree.com/png-vector/20221017/ourmid/pngtree-helloween-bat-wings-png-image_6350846.png" alt="Bat">
+    <img class="corner-img left" src="https://png.pngtree.com/png-vector/20221017/ourmid/pngtree-helloween-bat-wings-png-image_6350846.png" alt="Ghost Left">
+    <img class="corner-img right" src="https://png.pngtree.com/png-vector/20221017/ourmid/pngtree-helloween-bat-wings-png-image_6350846.png" alt="Cat Right">
+    <header>
+        <h1>Halloween Night</h1>
+        <p>Classic, Fun & Beautifully Spooky</p>
+        <div class="image-row">
+            <img src="https://www.creativefabrica.com/wp-content/uploads/2022/07/18/Helloween-t-shirt-design-Graphics-34385657-2-580x387.jpg" alt="Pumpkin">
+            <img src="https://www.creativefabrica.com/wp-content/uploads/2022/07/18/Helloween-t-shirt-design-Graphics-34385657-2-580x387.jpg" alt="Cute Pumpkin">
+            <img src="https://www.creativefabrica.com/wp-content/uploads/2022/07/18/Helloween-t-shirt-design-Graphics-34385657-2-580x387.jpg" alt="Haunted House">
+            <img src="https://www.creativefabrica.com/wp-content/uploads/2022/07/18/Helloween-t-shirt-design-Graphics-34385657-2-580x387.jpg" alt="Smiling Ghost">
+        </div>
+    </header>
+    <main>
+        <h2>Halloween Fun Awaits!</h2>
+        <div class="line"></div>
+        <p>Step into a magical, mysterious night! Celebrate with laughter, classic treats, and beautiful spooky style.</p>
+        <ul>
+            <li>Light lanterns and watch shadows dance</li>
+            <li>Try pumpkin pies and candy apples</li>
+            <li>Share fun ghost stories</li>
+            <li>Dress up—be a friendly spirit or a charming witch!</li>
+            <li>Decorate with pumpkins, spiders, and cobwebs</li>
+        </ul>
+        <button class="btn-fun">Trick or Treat!</button>
+        <div class="line"></div>
+        <p>Wishing you haunting joy and warm Halloween magic!</p>
+    </main>
+    <footer>
+        &copy; 2025 Halloween Classic. Stay Fun and Spooky!
+    </footer>
+</body>
+</html>
